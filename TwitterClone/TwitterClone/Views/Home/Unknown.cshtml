@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DataLayer.Models.PersonModel>
+
+<p>
+    Persons You may know!
+</p>
+<table class="table">
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Joined)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Follow", "Follow", new {  id=item.UserId}) |
+        </td>
+    </tr>
+}
+
+</table>

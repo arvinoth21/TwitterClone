@@ -1,0 +1,64 @@
+﻿@model TwitterClone.Models.HomeViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-sm-3">
+        <label>@ViewBag.ProfileName Profile</label>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <a href="#"><img class="img-responsive" alt="Image" src=""></a>
+                <div class="row">
+                    <div class="col-xs-3">
+                        <h5>
+                            <small>TWEETS</small>
+                            <a href="#">@ViewBag.TweetCount</a>
+                        </h5>
+                    </div>
+                    <div class="col-xs-4">
+                        <h5>
+                            <small>FOLLOWING</small>
+                            <a href="#">@ViewBag.FollowingCount</a>
+                        </h5>
+                    </div>
+                    <div class="col-xs-4">
+                        <h5>
+                            <small>FOLLOWERS</small>
+                            <a href="#">@ViewBag.FollowersCount</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-7">
+        <div class="form-group">
+            <label>Write Something...</label>
+            <div class="form-group">
+                <textarea rows="4" class="form-control" id="message" title="Tweet Here" style="max-width:100%"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary margin-right" onclick="location.href='@Url.Action("Tweet", "Home")?message=' + $('#message').val()">Share</button>
+        </div>
+
+        <hr />
+        @Html.Partial("DashBoard", Model.Tweets)
+    </div>
+
+    <div class="col-sm-2">
+        <label>Users to Follow!</label>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @foreach (var item in Model.PersonToFollow)
+                {
+                    <div>
+                        <label>@Html.DisplayFor(modelItem => item)</label>
+                        <a href="#"onclick="location.href='@Url.Action("Follow", "Home", new { followId = item})'" class="btn btn-default btn-xs">+<span class="glyphicon glyphicon-user"></span>Follow</a>
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+
+    </div>

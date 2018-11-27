@@ -1,0 +1,27 @@
+﻿@model List<DataLayer.Models.TweetModel>
+
+<p>
+  <a href="#"><span class="glyphicon glyphicon-home"></span>News Feed</a>
+</p>
+
+@foreach (var item in Model) {
+    <div class="media">
+        <a class="media-left" href="#fake">
+            <img alt="" class="media-object img-rounded" src="">
+        </a>
+        <div class="media-body">
+            <h4 class="media-heading">@Html.DisplayFor(modelItem => item.UserId)</h4>
+            <p>@Html.DisplayFor(modelItem => item.Message)</p>
+            <small><span class="glyphicon glyphicon-calendar">@Html.DisplayFor(modelItem => item.Created)</span> </small>
+            <ul class="nav nav-pills nav-pills-custom">
+                <li><a href="#"><span class="glyphicon glyphicon-share-alt"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-retweet"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-option-horizontal"></span></a></li>
+            </ul>
+        </div>
+    </div>
+}
+
+
+
