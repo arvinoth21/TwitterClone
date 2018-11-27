@@ -27,6 +27,7 @@ namespace TwitterClone.Controllers
             ViewBag.ProfileName = Session["UserId"].ToString();
 
             return View(vm);
+
         }
         public ActionResult DashBoard()
         {
